@@ -1,12 +1,12 @@
 onload = () => {
-    // الانتظار لمدة ثانية واحدة قبل بدء أنيميشن تفتح الزهور
+    // الانتظار لمدة 1000 مللي ثانية (ثانية واحدة)
     const c = setTimeout(() => {
+        // إزالة كلاس "not-loaded" لبدء تفتح الورود والأنيميشن
         document.body.classList.remove("not-loaded");
+        
+        // تنظيف الـ Timeout لضمان عدم استهلاك الذاكرة
         clearTimeout(c);
+        
+        console.log("Flowers have successfully bloomed!");
     }, 1000);
-
-    // ملاحظة احترافية: 
-    // إذا كنت تريد التفاعل مع مشغل سبوتيفاي برمجياً مستقبلاً 
-    // يمكنك إضافة الأكواد هنا.
-    console.log("Flowers are blooming...");
 };
