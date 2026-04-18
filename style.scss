@@ -1360,3 +1360,44 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
+/* تنسيق مشغل الموسيقى */
+.music-player {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.15); /* شفافية */
+    backdrop-filter: blur(8px); /* تغبيش الخلفية */
+    padding: 12px 20px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    direction: ltr; /* لضمان ترتيب الأزرار من اليسار لليمين */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #ff4d6d; /* لون وردي متناسق مع الوردة */
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.controls button:hover {
+    transform: scale(1.2);
+    color: #ff758c;
+}
+
+/* إخفاء مشغل يوتيوب تماماً */
+#youtube-player {
+    display: none;
+}
