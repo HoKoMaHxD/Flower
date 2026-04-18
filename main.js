@@ -1,9 +1,9 @@
 window.onload = () => {
-    // الانتظار ثانية واحدة ثم إزالة كلاس not-loaded لبدء الأنيميشن
-    const c = setTimeout(() => {
+    // التأخير ثانية واحدة لضمان تحميل العناصر ثم بدء الأنيميشن
+    const timeout = setTimeout(() => {
         document.body.classList.remove("not-loaded");
-        clearTimeout(c);
+        clearTimeout(timeout);
     }, 1000);
-    
-    console.log("Flowers are blooming...");
+
+    console.log("Vercel Deployment: Spotify & Flowers Active.");
 };
