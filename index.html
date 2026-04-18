@@ -3,18 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower with Music</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Flower with Spotify Music</title>
+    <style>
+        /* إعدادات الخلفية والوردة */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* خلفية سوداء لتبرز الوردة */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* تنسيق مشغل سبوتيفاي في الزاوية فوق يسار */
+        .music-player {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px); /* تأثير الزجاج */
+            border-radius: 15px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .music-player:hover {
+            opacity: 1;
+        }
+
+        /* أنيميشن الوردة (نسخة مبسطة متوافقة مع جميع المتصفحات) */
+        .flower {
+            position: relative;
+        }
+
+        .f-wrapper {
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flower__line {
+            width: 4px;
+            height: 300px;
+            background-image: linear-gradient(to top, #000, #144422);
+            border-radius: 4px;
+        }
+
+        .f-1 {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* تمثيل البتلات بشكل مبسط */
+        .leaf {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            width: 40px;
+            height: 100px;
+            background: #ff4d6d;
+            border-radius: 50% 50% 20% 20%;
+            transform-origin: bottom center;
+            animation: open-flower 3s ease-in-out infinite alternate;
+            opacity: 0.8;
+        }
+
+        /* توزيع البتلات بشكل دائري */
+        .leaf--1 { transform: translateX(-50%) rotate(0deg); }
+        .leaf--2 { transform: translateX(-50%) rotate(45deg); }
+        .leaf--3 { transform: translateX(-50%) rotate(90deg); }
+        .leaf--4 { transform: translateX(-50%) rotate(135deg); }
+        .leaf--5 { transform: translateX(-50%) rotate(180deg); }
+        .leaf--6 { transform: translateX(-50%) rotate(225deg); }
+        .leaf--7 { transform: translateX(-50%) rotate(270deg); }
+        .leaf--8 { transform: translateX(-50%) rotate(315deg); }
+
+        @keyframes open-flower {
+            0% { transform: translateX(-50%) rotate(var(--rot)) scale(0.8); }
+            100% { transform: translateX(-50%) rotate(var(--rot)) scale(1.1); box-shadow: 0 0 20px #ff4d6d; }
+        }
+
+        /* تخصيص زوايا البتلات */
+        .leaf--1 { --rot: 0deg; } .leaf--2 { --rot: 45deg; }
+        .leaf--3 { --rot: 90deg; } .leaf--4 { --rot: 135deg; }
+        .leaf--5 { --rot: 180deg; } .leaf--6 { --rot: 225deg; }
+        .leaf--7 { --rot: 270deg; } .leaf--8 { --rot: 315deg; }
+
+    </style>
 </head>
 <body>
 
-    <div id="music-container" class="music-player">
-        <div class="controls">
-            <button id="prev" title="السابق">⏮</button>
-            <button id="play-pause" title="تشغيل/إيقاف">▶</button>
-            <button id="next" title="التالي">⏭</button>
-        </div>
-        <div id="youtube-player"></div>
+    <div class="music-player">
+        <iframe 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGvPBcmT?utm_source=generator&theme=0" 
+            width="100%" 
+            height="80" 
+            frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
     </div>
 
     <div class="flower">
@@ -33,7 +133,5 @@
         </div>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="main.js"></script>
 </body>
 </html>
