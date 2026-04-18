@@ -1,12 +1,9 @@
-onload = () => {
-    // الانتظار لمدة 1000 مللي ثانية (ثانية واحدة)
+window.onload = () => {
+    // الانتظار ثانية واحدة ثم إزالة كلاس not-loaded لبدء الأنيميشن
     const c = setTimeout(() => {
-        // إزالة كلاس "not-loaded" لبدء تفتح الورود والأنيميشن
         document.body.classList.remove("not-loaded");
-        
-        // تنظيف الـ Timeout لضمان عدم استهلاك الذاكرة
         clearTimeout(c);
-        
-        console.log("Flowers have successfully bloomed!");
     }, 1000);
+    
+    console.log("Flowers are blooming...");
 };
